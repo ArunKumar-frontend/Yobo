@@ -1,65 +1,182 @@
-import Image from "next/image";
-
+'use client';
+import { useRef,useLayoutEffect } from "react";
+import CardNav from "./lib/CardNav";
+import logo from "../../public/assets/logo.svg";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import PartnerMarquee from "./component/Partner";
+import DomeGallery from "./lib/DemoGallery";
+import Services from "./component/Services";
+import GlassSurface from "@/components/GlassSurface";
+import CardSwap, { Card } from "@/components/CardSwap";
+ 
+ 
+gsap.registerPlugin(ScrollTrigger);
+ 
 export default function Home() {
+  const heroRef = useRef(null);
+const items = [
+    {
+      label: "About",
+      bgColor: "#0D0716",
+      textColor: "#fff",
+      links: [
+        { label: "Company", ariaLabel: "About Company" },
+        { label: "Careers", ariaLabel: "About Careers" }
+      ]
+    },
+    {
+      label: "Projects",
+      bgColor: "#170D27",
+      textColor: "#fff",
+      links: [
+        { label: "Featured", ariaLabel: "Featured Projects" },
+        { label: "Case Studies", ariaLabel: "Project Case Studies" }
+      ]
+    },
+    {
+      label: "Contact",
+      bgColor: "#271E37",
+      textColor: "#fff",
+      links: [
+        { label: "Email", ariaLabel: "Email us" },
+        { label: "Twitter", ariaLabel: "Twitter" },
+        { label: "LinkedIn", ariaLabel: "LinkedIn" }
+      ]
+    }
+  ];
+ 
+  useLayoutEffect(() => {
+    if (!heroRef.current) return;
+ 
+    gsap.to(heroRef.current, {
+      y: -120,
+      ease: "none",
+      scrollTrigger: {
+        trigger: heroRef.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+  }, []);
+ 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
+    <div className="relative w-full">
+ 
+      {/* NAV */}
+      <CardNav
+        imageSrc={logo.src}
+        logoAlt="yobo"
+        items={items}
+        baseColor="#fff"
+        menuColor="#000"
+        buttonBgColor="#111"
+        buttonTextColor="#fff"
+      />
+ 
+      {/* HERO SECTION */}
+      <section
+        ref={heroRef}
+        className="relative h-screen flex items-center justify-center z-10"
+      >
+        <div className="text-center">
+          <h1 className="text-5xl font-bold">
+            The Business Money OS
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mt-4 opacity-80">
+            Connected banking. Smart treasury. Instant payouts.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+ 
+   
+ 
+
+ 
+
+      </section>
+       <PartnerMarquee/>
+       <div style={{ width: '100vw', height: '100vh' }}>
+
+              <Services/>
+     <div className="bg-black min-h-screen flex items-center justify-center p-8">
+      <div className="w-full max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* LEFT CONTENT */}
+          <div className="flex flex-col gap-4 text-center lg:text-left">
+            <h1 className="text-white text-5xl font-bold leading-tight">
+              Card stacks have never<br />looked so good
+            </h1>
+            <p className="text-xl text-gray-300">
+              Just look at it go!
+            </p>
+          </div>
+
+          {/* RIGHT CARDS */}
+          <div className="relative h-[500px] w-full flex items-center justify-center">
+            <CardSwap
+              width={450}
+              height={380}
+              cardDistance={50}
+              verticalDistance={60}
+              delay={3000}
+              pauseOnHover={true}
+              skewAmount={4}
+            >
+              <Card>
+                <div className="flex w-full h-full flex-col">
+                  <div className="w-full border-b p-3 border-white bg-black">
+                    <h3 className="text-lg font-semibold">Card 1</h3>
+                  </div>
+                  <div className="flex-1 flex justify-center items-center bg-white p-0">
+                    <img 
+                      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop" 
+                      alt="Mountain landscape" 
+                      className="w-full h-full object-cover" 
+                    />
+                  </div>
+                </div>
+              </Card>
+
+              <Card>
+                <div className="flex w-full h-full flex-col">
+                  <div className="w-full border-b p-3 border-white bg-black">
+                    <h3 className="text-lg font-semibold">Card 2</h3>
+                  </div>
+                  <div className="flex-1 flex justify-center items-center bg-white p-0">
+                    <img 
+                      src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop" 
+                      alt="Forest scene" 
+                      className="w-full h-full object-cover" 
+                    />
+                  </div>
+                </div>
+              </Card>
+
+              <Card>
+                <div className="flex w-full h-full flex-col">
+                  <div className="w-full border-b p-3 border-white bg-black">
+                    <h3 className="text-lg font-semibold">Card 3</h3>
+                  </div>
+                  <div className="flex-1 flex justify-center items-center bg-white p-0">
+                    <img 
+                      src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&h=600&fit=crop" 
+                      alt="Misty mountains" 
+                      className="w-full h-full object-cover" 
+                    />
+                  </div>
+                </div>
+              </Card>
+            </CardSwap>
+          </div>
         </div>
-      </main>
+      </div>
+    </div>
+     <DomeGallery />
+    </div>
+
     </div>
   );
 }
+ 
+ 
