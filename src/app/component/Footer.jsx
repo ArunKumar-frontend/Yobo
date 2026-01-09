@@ -39,13 +39,8 @@ const headerStyles = "font-['Outfit'] font-bold text-[20px] leading-none trackin
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-12">
         
         {/* Left Section: Info and Socials */}
-        <div className="flex-1 ">
-<p className="font-['Outfit'] font-light text-[16px] leading-[1.5] tracking-normal text-[#4F4F4F] mb-8 max-w-[320px] md:max-w-full">  Amet minim mollit non deserunt ullamco
-  est sit aliqua dolor do amet sint. Velit officia
-  consequat duis enim velit mollit.
-  Exercitation veniam consequat sunt
-  nostrud amet.
-</p>
+        <div className="flex-1 max-w-[400px]">
+<p className="font-['Outfit'] font-light text-[16px] leading-[1.5] tracking-normal text-[#4F4F4F] mb-8">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>  
           
           <div className="flex gap-4">
             <a className="p-2 text-blue-600 hover:scale-110 transition-transform">
