@@ -9,6 +9,10 @@ import DomeGallery from "./lib/DemoGallery";
 import Services from "./component/Services";
 import GlassSurface from "@/components/GlassSurface";
 import CardSwap, { Card } from "@/components/CardSwap";
+import TestimonialSection from "./component/Testimonial";
+import Footer from "./component/Footer";
+      import ScrollStack, { ScrollStackItem } from "../components/ui/scroll-stack"
+
  
  
 gsap.registerPlugin(ScrollTrigger);
@@ -95,6 +99,21 @@ const items = [
  
 
       </section>
+
+<ScrollStack>
+  <ScrollStackItem>
+    <h2>Card 1</h2>
+    <p>This is the first card in the stack</p>
+  </ScrollStackItem>
+  <ScrollStackItem>
+    <h2>Card 2</h2>
+    <p>This is the second card in the stack</p>
+  </ScrollStackItem>
+  <ScrollStackItem>
+    <h2>Card 3</h2>
+    <p>This is the third card in the stack</p>
+  </ScrollStackItem>
+</ScrollStack>
        <PartnerMarquee/>
        <div style={{ width: '100vw', height: '100vh' }}>
 
@@ -173,6 +192,8 @@ const items = [
       </div>
     </div>
      <DomeGallery />
+     <TestimonialSection/>
+     <Footer />
     </div>
 
     </div>
