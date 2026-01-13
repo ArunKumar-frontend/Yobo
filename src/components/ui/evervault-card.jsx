@@ -2,7 +2,7 @@
 import { useMotionValue } from "motion/react";
 import React, { useState, useEffect } from "react";
 import { useMotionTemplate, motion } from "motion/react";
-import { cn } from "../../app/lib/utils";
+import { cn } from "./utils";
 
 export const EvervaultCard = ({
   text,
@@ -34,7 +34,7 @@ export const EvervaultCard = ({
   return (
     <div
       className={cn(
-        "p-0.5  bg-white aspect-square  border border-black flex items-center justify-center w-full h-full relative rounded-2xl",
+        "p-0.5  bg-[#0026B6] aspect-square   flex items-center justify-center w-full h-full relative ",
         className
       )}>
       <div
@@ -43,19 +43,19 @@ export const EvervaultCard = ({
         <CardPattern mouseX={mouseX} mouseY={mouseY} randomString={randomString} />
         <div className="relative z-10 flex items-center justify-center">
           <div
-            className="relative h-64 w-full  rounded-full flex items-center justify-center text-white font-bold text-4xl">
+            className="relative h-64 w-full  rounded-full flex flex-col gap-8 items-center justify-center text-white font-bold text-4xl">
             {/* <div className="absolute w-full h-full bg-white/[0.8] dark:bg-black/[0.8] blur-sm rounded-full " /> */}
-              {/* <div className="flex flex-col justify-center items-center gap-4">
-     <span className="dark:text-white text-black z-20">
+              <div className="flex flex-col justify-center items-center gap-2">
+     <span className="dark:text-white text-white z-20">
 
-              <span className="text-[#0D3BFF]">AI-Powered </span>Investment Advice
+              <span className="text-[#FFCA00]">AI-Powered </span>Investment Advice
             </span>
-            <span className="text-lg  text-black z-20">Let AI put your money to work.</span>
-              </div> */}
+            <span className="text-lg  text-[#99A7E1] z-20">Let AI put your money to work.</span>
+              </div> 
  <img
-                src='./assets/Payoutsection.png'
+                src='./assets/service1.svg'
                 alt='payout'
-                className={` w-[800px] object-contain z-10`}
+                className={` w-[80%] object-contain z-10`}
               />
           </div>
 

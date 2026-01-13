@@ -121,5 +121,53 @@
   }
   body {
     @apply bg-background text-foreground;
+          font-family:"Plus Jakarta Sans";
+
   }
+}
+
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+
+.marquee-content {
+  display: flex;
+  white-space: nowrap;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+/* ==============================
+   Testimonial Marquee Animation
+================================ */
+
+@keyframes testimonial-marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.testimonial-marquee {
+  display: flex;
+  width: max-content;
+  animation: testimonial-marquee 12s linear infinite;
+}
+
+.testimonial-marquee:hover {
+  animation-play-state: paused;
 }
