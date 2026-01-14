@@ -12,7 +12,7 @@ const ContentSlider = () => {
       heading: "Organise your money",
       description: "Whether it's for gadgets and getaways or bills, automatically categorise your cash with Pockets. They're sub-accounts that help you control your spend.",
       buttonText: "Create a Pocket",
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=1000&fit=crop"
+      image: "/assets/sliderimg1.svg"
     },
     {
       id: 2,
@@ -20,23 +20,15 @@ const ContentSlider = () => {
       heading: "Track your spending",
       description: "Set monthly budgets for different categories and get real-time insights into your spending habits. Stay on top of your finances with smart alerts.",
       buttonText: "Set Budget",
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=1000&fit=crop"
+      image: "/assets/sliderimg2.svg"
     },
     {
       id: 3,
-      title: "Savings",
-      heading: "Build your future",
-      description: "Create dedicated savings pots for your goals. Round up purchases, set up recurring transfers, and watch your money grow automatically.",
-      buttonText: "Start Saving",
-      image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=1000&fit=crop"
-    },
-    {
-      id: 4,
       title: "Analytics",
       heading: "Understand your money",
       description: "Get detailed breakdowns of your spending patterns with interactive charts and insights. Make smarter financial decisions with data.",
       buttonText: "View Analytics",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=1000&fit=crop"
+      image: "/assets/sliderimg3.svg"
     }
   ];
 

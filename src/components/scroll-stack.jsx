@@ -25,7 +25,7 @@ const ScrollStack = () => {
     textColor: 'text-white',
     highlightColor: 'text-white',
     video: './assets/video1.mp4',
-            image: '',
+        image: './assets/scrollstackimg3.svg',
         marginbottomnum:"12vh"
 
   },
@@ -39,7 +39,7 @@ const ScrollStack = () => {
     textColor: 'text-white',
     highlightColor: 'text-white',
     video: './assets/video1.mp4',
-            image: '',
+        image: './assets/scrollstackimg3.svg',
         marginbottomnum:""
 
   }
@@ -126,7 +126,7 @@ const ScrollStack = () => {
               </div>
 
               {/* RIGHT VIDEO */}
-              <div className="flex justify-center items-center p-2 overflow-hidden rounded-xl">
+              <div className="flex justify-center items-center p-2 overflow-hidden rounded-xl z-10">
                 {card.image?
                 <img
                   src={card.image}
@@ -134,7 +134,7 @@ const ScrollStack = () => {
                   alt={card.image}
                   
                   
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-[80%] h-[80%] object-cover rounded-2xl"
                 />
               :
                 <video

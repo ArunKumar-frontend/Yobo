@@ -193,6 +193,7 @@ const CardNav = ({
             aria-label="Toggle menu"
             aria-expanded={isExpanded}
             style={{ color: menuColor }}
+            className='cursor-pointer'
           >
             {isHamburgerOpen ? <X /> : <Menu />}
           </button>
@@ -200,7 +201,7 @@ const CardNav = ({
           <img src={yobologo.src} alt={logoAlt} className="h-[28px]" />
 
           <button
-            className="hidden md:flex items-center gap-1 px-4 py-2 rounded-full font-medium"
+            className="hidden md:flex items-center gap-1 px-4 py-2 rounded-full font-medium cursor-pointer"
             style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
           >
             Get Started <ChevronRight />

@@ -82,7 +82,7 @@ const TestimonialSection = () => {
               Track, categorize, and analyze your spending in real time.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-2 bg-white rounded-full p-2">
+            <div className="flex flex-row gap-2 bg-white rounded-full p-2 w-full">
               <input
                 type="email"
                 placeholder="Enter your email..."

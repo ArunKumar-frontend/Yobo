@@ -27,7 +27,7 @@ export const EvervaultCard = ({
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
 
-    const str = generateRandomString(5500);
+    const str = generateRandomString(6500);
     setRandomString(str);
   }
 
@@ -39,11 +39,11 @@ export const EvervaultCard = ({
       )}>
       <div
         onMouseMove={onMouseMove}
-        className="group/card rounded-3xl w-full relative overflow-hidden bg-transparent flex items-center justify-center h-full">
+        className="group/card  w-full relative overflow-hidden bg-transparent flex items-center justify-center h-full">
         <CardPattern mouseX={mouseX} mouseY={mouseY} randomString={randomString} />
-        <div className="relative z-10 flex items-center justify-center">
+        <div className="relative z-10 h-full flex items-center justify-center ">
           <div
-            className="relative h-64 w-full  rounded-full flex flex-col gap-8 items-center justify-center text-white font-bold text-4xl">
+            className="relative h-full w-full p-10  flex flex-col gap-4 items-center justify-center text-white font-bold text-4xl">
             {/* <div className="absolute w-full h-full bg-white/[0.8] dark:bg-black/[0.8] blur-sm rounded-full " /> */}
               <div className="flex flex-col justify-center items-center gap-2">
      <span className="dark:text-white text-white z-20">
@@ -55,7 +55,7 @@ export const EvervaultCard = ({
  <img
                 src='./assets/service1.svg'
                 alt='payout'
-                className={` w-[80%] object-contain z-10`}
+                className={` w-full object-contain z-10`}
               />
           </div>
 
@@ -77,12 +77,12 @@ export function CardPattern({
   return (
     <div className="pointer-events-none h-full">
       <div
-        className="absolute inset-0 rounded-2xl  [mask-image:linear-gradient(white,transparent)] group-hover/card:opacity-50"></div>
+        className="absolute inset-0   [mask-image:linear-gradient(white,transparent)] group-hover/card:opacity-50"></div>
       <motion.div
-        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-green-500 to-blue-700 opacity-0  group-hover/card:opacity-100 backdrop-blur-xl transition duration-500"
+        className="absolute inset-0  bg-gradient-to-r from-green-500 to-blue-700 opacity-0  group-hover/card:opacity-100 backdrop-blur-xl transition duration-500"
         style={style} />
       <motion.div
-        className="absolute inset-0 rounded-2xl opacity-0 mix-blend-overlay  group-hover/card:opacity-100"
+        className="absolute inset-0  opacity-0 mix-blend-overlay  group-hover/card:opacity-100"
         style={style}>
         <p
           className="absolute inset-x-0 text-xs h-full break-words whitespace-pre-wrap text-white font-mono font-bold transition duration-500">

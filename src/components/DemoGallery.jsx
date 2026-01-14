@@ -145,6 +145,9 @@ export default function DomeGallery({
   const openingRef = useRef(false);
   const openStartedAtRef = useRef(0);
   const lastDragEndAt = useRef(0);
+const autoRotateRAF = useRef(null);
+const autoRotateSpeed = useRef(0.1); // degrees per frame
+const autoRotateEnabled = useRef(true);
 
   const scrollLockedRef = useRef(false);
   const lockScroll = useCallback(() => {
@@ -162,12 +165,45 @@ export default function DomeGallery({
   const items = useMemo(() => buildItems(images, segments), [images, segments]);
 
   const applyTransform = (xDeg, yDeg) => {
+
     const el = sphereRef.current;
     if (el) {
       el.style.transform = `translateZ(calc(var(--radius) * -1)) rotateX(${xDeg}deg) rotateY(${yDeg}deg)`;
     }
   };
+const startAutoRotate = useCallback(() => {
+  if (autoRotateRAF.current) return;
 
+  const loop = () => {
+    // Pause during interaction
+    if (
+      autoRotateEnabled.current &&
+      !draggingRef.current &&
+      !openingRef.current &&
+      !focusedElRef.current
+    ) {
+      rotationRef.current.y = wrapAngleSigned(
+        rotationRef.current.y + autoRotateSpeed.current
+      );
+
+      applyTransform(rotationRef.current.x, rotationRef.current.y);
+    }
+
+    autoRotateRAF.current = requestAnimationFrame(loop);
+  };
+
+  autoRotateRAF.current = requestAnimationFrame(loop);
+}, []);
+const stopAutoRotate = useCallback(() => {
+  if (autoRotateRAF.current) {
+    cancelAnimationFrame(autoRotateRAF.current);
+    autoRotateRAF.current = null;
+  }
+}, []);
+useEffect(() => {
+  startAutoRotate();
+  return () => stopAutoRotate();
+}, [startAutoRotate, stopAutoRotate]);
   const lockedRadiusRef = useRef(null);
 
   useEffect(() => {
@@ -303,7 +339,8 @@ export default function DomeGallery({
       onDragStart: ({ event }) => {
         if (focusedElRef.current) return;
         stopInertia();
-
+autoRotateEnabled.current = false;
+stopAutoRotate();
         pointerTypeRef.current = event.pointerType || 'mouse';
         if (pointerTypeRef.current === 'touch') event.preventDefault();
         if (pointerTypeRef.current === 'touch') lockScroll();
@@ -381,6 +418,10 @@ export default function DomeGallery({
           if (movedRef.current) lastDragEndAt.current = performance.now();
           movedRef.current = false;
           if (pointerTypeRef.current === 'touch') unlockScroll();
+          setTimeout(() => {
+  autoRotateEnabled.current = true;
+  startAutoRotate();
+}, 600);
         }
       }
     },
@@ -846,8 +887,9 @@ export default function DomeGallery({
             </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black z-10 pointer-events-none" />
                 <div className='text-white z-20 absolute flex flex-col justify-center items-center gap-2 '>
-                  <h1 className='font-bold text-7xl '>It covers all the banks</h1>
-                  <span className='text-md font-light'>Connected banking. Smart treasury. Instant payouts. One platform.</span>
+                  <img src='/assets/bankicongallery.svg' alt='bank icon' className='z-20'/>
+                  <h1 className='font-bold text-7xl text-center '>It covers all the banks</h1>
+                  <span className='text-md font-light text-center'>Connected banking. Smart treasury. Instant payouts. One platform.</span>
                     <button className="mt-4 px-8 py-4 bg-white text-black rounded-full font-semibold  transition-colors duration-300 inline-block cursor-pointer">
                 Get Started
               </button>
