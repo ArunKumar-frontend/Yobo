@@ -75,12 +75,17 @@ const ContentSlider = () => {
                 isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
               }`}
             >
-              <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
+              {/* <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
                 {currentSlide.title}
-              </p>
+              </p> */}
               
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                {currentSlide.heading}
+                {currentSlide.heading.split(' ')[0]} {currentSlide.heading.split(' ')[1]}<br/>
+                 <span className='text-[#0D3BFF]'>
+                  {currentSlide.heading.split(' ')[2]}
+                  </span>
+
+
               </h1>
               
               <p className="text-lg text-[#7A7A7A] leading-relaxed">
