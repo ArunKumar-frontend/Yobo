@@ -1,10 +1,12 @@
 'use client';
-
+import * as React from "react";
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from 'gsap';
 import { GoArrowUpRight } from 'react-icons/go';
 import { ChevronRight, Menu, X } from 'lucide-react';
 import yobologo from '../../public/assets/logo.svg';
+import EarlyAccessModal from "./Earlyaccess";
 
 /* ---------------------------------------------
    Isomorphic layout effect (SSR-safe)
@@ -22,12 +24,14 @@ const CardNav = ({
   buttonBgColor = '#000',
   buttonTextColor = '#fff'
 }) => {
+
   /* ---------------------------------------------
      STATE
   ---------------------------------------------- */
   const [mounted, setMounted] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
+  const [open, setOpen] = React.useState(false);
 
   /* ---------------------------------------------
      REFS
@@ -176,7 +180,9 @@ const CardNav = ({
   /* ---------------------------------------------
      RENDER (SAFE)
   ---------------------------------------------- */
+  
   return (
+    <>
     <div
       className={`fixed left-1/2 -translate-x-1/2 top-5 w-[90%] max-w-[800px] z-[99] ${className}`}
       style={{ visibility: mounted ? 'visible' : 'hidden' }}
@@ -187,8 +193,8 @@ const CardNav = ({
         style={{ backgroundColor: baseColor }}
       >
         {/* TOP BAR */}
-        <div className="absolute inset-x-0 top-0 h-[60px] flex items-center justify-between px-4 z-10">
-          <button
+        <div className="absolute inset-x-0 top-0 h-[60px] flex items-center justify-center px-4 z-10">
+          {/* <button
             onClick={toggleMenu}
             aria-label="Toggle menu"
             aria-expanded={isExpanded}
@@ -196,16 +202,16 @@ const CardNav = ({
             className='cursor-pointer'
           >
             {isHamburgerOpen ? <X /> : <Menu />}
-          </button>
+          </button> */}
 
           <img src={yobologo.src} alt={logoAlt} className="h-[28px]" />
 
-          <button
+          {/* <button
             className="hidden md:flex items-center gap-1 px-4 py-2 rounded-full font-medium cursor-pointer"
             style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
           >
             Get Started <ChevronRight />
-          </button>
+          </button> */}
         </div>
 
         {/* CONTENT */}
@@ -242,7 +248,23 @@ const CardNav = ({
           ))}
         </div>
       </nav>
+      
+
+      <motion.button
+          className="mt-4 px-8 py-3 bg-black text-white rounded-full font-semibold cursor-pointer absolute -top-2 -right-70"
+          onClick={() => setOpen(true)}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Get Started
+        </motion.button>
+        
     </div>
+    <AnimatePresence>
+  {open && <EarlyAccessModal onClose={() => setOpen(false)} />}
+</AnimatePresence>
+    </>
+    
   );
 };
 

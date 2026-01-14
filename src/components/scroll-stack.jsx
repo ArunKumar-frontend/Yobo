@@ -25,7 +25,7 @@ const ScrollStack = () => {
     textColor: 'text-white',
     highlightColor: 'text-white',
     video: './assets/video1.mp4',
-        image: './assets/scrollstackimg3.svg',
+        image: './assets/scrollstackimg2.svg',
         marginbottomnum:"12vh"
 
   },
