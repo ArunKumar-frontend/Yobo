@@ -46,16 +46,16 @@ const Footer = () => {
           </p>
 
           <div className="flex gap-4">
-            <a className="p-2 text-blue-600 hover:scale-110 transition-transform cursor-pointer">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="p-2 text-blue-600 hover:scale-110 transition-transform cursor-pointer">
               <Facebook size={24} fill="currentColor" strokeWidth={0} />
             </a>
-            <a className="p-2 text-blue-600 hover:scale-110 transition-transform cursor-pointer">
+            <a  href="https://www.linkedin.com/company/withyobo/" target="_blank" rel="noopener noreferrer" className="p-2 text-blue-600 hover:scale-110 transition-transform cursor-pointer">
               <Linkedin size={24} fill="currentColor" strokeWidth={0} />
             </a>
-            <a className="p-2 text-blue-400 hover:scale-110 transition-transform cursor-pointer">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-2 text-blue-400 hover:scale-110 transition-transform cursor-pointer">
               <Twitter size={24} fill="currentColor" strokeWidth={0} />
             </a>
-            <a className="p-2 text-blue-600 hover:scale-110 transition-transform cursor-pointer">
+            <a href="https://www.instagram.com/withyobo/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer" className="p-2 text-blue-600 hover:scale-110 transition-transform cursor-pointer">
               <Instagram size={18} strokeWidth={2.5} />
             </a>
           </div>
