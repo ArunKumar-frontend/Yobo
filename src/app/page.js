@@ -4,13 +4,12 @@ import DomeGallery from "../components/DemoGallery";
 import Services from "../components/Services";
 import TestimonialSection from "../components/Testimonial";
 import Footer from "../components/Footer";
-      import ScrollStack from "../components/scroll-stack"
+ import ScrollStack from "../components/scroll-stack"
 import ContentSlider from "@/components/contentslider";
 import { Landing } from "@/components/Landing";
 
- 
- 
- 
+
+
 export default function Home() {
 
  
