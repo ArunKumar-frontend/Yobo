@@ -52,7 +52,7 @@ const Footer = () => {
             <a  href="https://www.linkedin.com/company/withyobo/" target="_blank" rel="noopener noreferrer" className="p-2 text-blue-600 hover:scale-110 transition-transform cursor-pointer">
               <Linkedin size={24} fill="currentColor" strokeWidth={0} />
             </a>
-            <a  className="p-2 text-blue-400 hover:scale-110 transition-transform cursor-pointer">
+            <a href="https://x.com/withyobo?s=21" target="_blank" rel="noopener noreferrer" className="p-2 text-blue-400 hover:scale-110 transition-transform cursor-pointer">
               <Twitter size={24} fill="currentColor" strokeWidth={0} />
             </a>
             <a href="https://www.instagram.com/withyobo/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer" className="p-2 text-blue-600 hover:scale-110 transition-transform cursor-pointer">
