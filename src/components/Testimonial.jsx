@@ -23,7 +23,29 @@ const testimonials = [
     text:
       'A solution that scales with our business. Audit trails and compliance are spot on.',
     image: '/assets/testimonial-img.svg'
-  }
+  },
+  {
+  name: 'Rohit Mehta',
+  role: 'Founder & CEO, FinFlow Solutions',
+  text:
+    'Paywize gives us complete visibility into cash flow and approvals. It’s like having a finance command center.',
+  image: '/assets/testimonial2-img.svg'
+},
+{
+  name: 'Anita Verma',
+  role: 'Operations Lead, ScaleUp Labs',
+  text:
+    'From payouts to expense controls, everything is streamlined. Our finance operations are finally stress-free.',
+  image: '/assets/testimonial-img.svg'
+},
+{
+  name: 'Daniel Wright',
+  role: 'VP Finance, CloudNine Systems',
+  text:
+    'The level of control and transparency Paywize offers is unmatched. It helped us tighten compliance without slowing teams down.',
+  image: '/assets/testimonial2-img.svg'
+}
+
 ];
 
 const TestimonialSection = () => {
@@ -32,10 +54,10 @@ const TestimonialSection = () => {
       {/* Marquee */}
       <div className="relative mb-20">
         <div className="testimonial-marquee gap-4">
-          {[...testimonials, ...testimonials].map((item, index) => (
+          {[...testimonials].map((item, index) => (
             <div
               key={`${item.name}-${index}`}
-              className="flex-shrink-0 w-[500px] p-4 bg-[#F8F9FA] border border-[#E4E4EC] rounded-2xl"
+              className="flex-shrink-0 w-[300px] md:w-[500px] p-4 bg-[#F8F9FA] border border-[#E4E4EC] rounded-2xl"
             >
               <div className="flex gap-4">
                 <img
@@ -75,23 +97,26 @@ const TestimonialSection = () => {
           />
 
           <div className="relative z-10 max-w-2xl mx-auto text-center">
-            <h2 className="text-[54px] font-semibold mb-6 leading-none">
+            <h2 className="text-[30px] md:text-[54px] font-semibold mb-6 leading-none">
               Ready to take control of your finances?
             </h2>
             <p className="text-lg mb-10">
               Track, categorize, and analyze your spending in real time.
             </p>
 
-            <div className="flex flex-row gap-2 bg-white rounded-full p-2 w-full">
-              <input
-                type="email"
-                placeholder="Enter your email..."
-                className="flex-1 px-6 py-3 text-[#404C58] outline-none rounded-full"
-              />
-              <button className="bg-[#767DFF] px-8 py-3 rounded-full font-bold text-white">
-                Get Started
-              </button>
-            </div>
+            
+            <div className="flex items-center gap-2 bg-white rounded-full p-2 w-full max-w-xl mx-auto">
+  <input
+    type="email"
+    placeholder="Enter your email..."
+    className="flex-1 min-w-0 px-4 sm:px-6 py-3 text-[#404C58] outline-none rounded-full text-sm sm:text-base"
+  />
+
+  <button className="bg-[#767DFF] px-4 sm:px-8 py-3 rounded-full font-bold text-white whitespace-nowrap text-sm sm:text-base">
+    Get Started
+  </button>
+</div>
+
           </div>
         </div>
       </div>

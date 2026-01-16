@@ -193,25 +193,26 @@ const CardNav = ({
         style={{ backgroundColor: baseColor }}
       >
         {/* TOP BAR */}
-        <div className="absolute inset-x-0 top-0 h-[60px] flex items-center justify-center px-4 z-10">
-          {/* <button
+        <div className="absolute inset-x-0 top-0 h-[60px] flex items-center   justify-between px-4 z-10">
+          <button
             onClick={toggleMenu}
             aria-label="Toggle menu"
             aria-expanded={isExpanded}
             style={{ color: menuColor }}
-            className='cursor-pointer'
+            className='cursor-pointer hidden md:block'
           >
-            {isHamburgerOpen ? <X /> : <Menu />}
-          </button> */}
+            {/* {isHamburgerOpen ? <X /> : <Menu />} */}
+          </button>
 
           <img src={yobologo.src} alt={logoAlt} className="h-[28px]" />
 
-          {/* <button
-            className="hidden md:flex items-center gap-1 px-4 py-2 rounded-full font-medium cursor-pointer"
+          <button
+            className="block  md:flex items-center gap-1 px-4 py-2 rounded-full font-medium cursor-pointer"
             style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
+                      onClick={() => setOpen(true)}
           >
-            Get Started <ChevronRight />
-          </button> */}
+            Get Started 
+          </button>
         </div>
 
         {/* CONTENT */}
@@ -250,14 +251,14 @@ const CardNav = ({
       </nav>
       
 
-      <motion.button
-          className="mt-4 px-8 py-3 bg-black text-white rounded-full font-semibold cursor-pointer absolute -top-2 -right-70"
+      {/* <motion.button
+          className="mt-4 px-8 py-3 bg-black xl:block hidden text-white rounded-full font-semibold cursor-pointer absolute -top-2 -right-70"
           onClick={() => setOpen(true)}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           Get Started
-        </motion.button>
+        </motion.button> */}
         
     </div>
     <AnimatePresence>

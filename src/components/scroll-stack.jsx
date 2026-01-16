@@ -105,7 +105,7 @@ const ScrollStack = () => {
               </div>
               </div>
               
-            <div className="flex justify-between items-center h-full p-10 gap-4">
+            <div className="flex flex-col md:flex-row justify-between items-center h-full p-10 gap-4">
               
               {/* LEFT CONTENT */}
               <div className="flex flex-col justify-center items-start gap-4">
@@ -126,7 +126,7 @@ const ScrollStack = () => {
               </div>
 
               {/* RIGHT VIDEO */}
-              <div className="flex justify-center items-center p-2 overflow-hidden rounded-xl z-10">
+              <div className="flex justify-center items-center p-2 overflow-hidden rounded-xl z-10  ">
                 {card.image?
                 <img
                   src={card.image}
@@ -134,7 +134,7 @@ const ScrollStack = () => {
                   alt={card.image}
                   
                   
-                  className="w-[80%] h-[80%] object-cover rounded-2xl"
+                  className="w-full h-full md:w-[80%] md:h-[80%] object-cover rounded-2xl"
                 />
               :
                 <video

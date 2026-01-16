@@ -119,7 +119,7 @@ const CurvedLoop = ({
 
         {spacing > 0 && (
           <text
-            className={`font-bold uppercase fill-black text-[20px] tracking-[0.35em] ${className}`}
+            className={`font-bold uppercase fill-black text-[54px] md:text-[34px] lg:text-[24px] tracking-[0.35em] ${className}`}
             style={{
               transform: 'scaleX(1.5)',
               transformOrigin: 'center'

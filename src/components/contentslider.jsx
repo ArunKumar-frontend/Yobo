@@ -92,9 +92,9 @@ const ContentSlider = () => {
                 {currentSlide.description}
               </p>
               
-              <button className="mt-8 px-8 py-4 bg-gray-900 text-white rounded-full font-semibold hover:bg-gray-800 transition-colors duration-300 inline-block cursor-pointer">
+              {/* <button className="mt-8 px-8 py-4 bg-gray-900 text-white rounded-full font-semibold hover:bg-gray-800 transition-colors duration-300 inline-block cursor-pointer">
                 {currentSlide.buttonText}
-              </button>
+              </button> */}
             </div>
 
             {/* Navigation Controls */}
