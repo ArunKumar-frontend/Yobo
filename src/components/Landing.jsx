@@ -81,7 +81,7 @@ export const Landing = () => {
           <motion.img
             src="/assets/cycle.svg"
             alt="cycle"
-            className="logo z-10 mt-4 h-[76%] w-[76%] sm:h-[56%] sm:w-[56%] md:h-[46%] md:w-[46%] lg:w-[46%] lg:h-[46%] xl:h-[26%] xl:w-[26%] "
+            className="logo z-10 mt-4 h-[76%] w-[76%] sm:h-[56%] sm:w-[56%] md:h-[46%] md:w-[46%] lg:w-[40%] lg:h-[40%] xl:h-[26%] xl:w-[26%] "
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.9 }}

@@ -1,6 +1,8 @@
 'use client';
 
+import { AnimatePresence } from 'framer-motion';
 import React from 'react';
+import EarlyAccessModal from './Earlyaccess';
 
 const testimonials = [
   {
@@ -49,6 +51,8 @@ const testimonials = [
 ];
 
 const TestimonialSection = () => {
+    const [open, setOpen] = React.useState(false);
+  
   return (
     <section className="bg-white py-16 overflow-hidden">
       {/* Marquee */}
@@ -105,7 +109,7 @@ const TestimonialSection = () => {
             </p>
 
             
-            <div className="flex items-center gap-2 bg-white rounded-full p-2 w-full max-w-xl mx-auto">
+            {/* <div className="flex items-center gap-2 bg-white rounded-full p-2 w-full max-w-xl mx-auto">
   <input
     type="email"
     placeholder="Enter your email..."
@@ -115,11 +119,20 @@ const TestimonialSection = () => {
   <button className="bg-[#767DFF] px-4 sm:px-8 py-3 rounded-full font-bold text-white whitespace-nowrap text-sm sm:text-base">
     Get Started
   </button>
-</div>
+</div> */}
 
+
+  <button className="bg-white px-4 sm:px-8 py-3 rounded-full font-bold cursor-pointer text-[#767DFF] whitespace-nowrap text-sm sm:text-base"
+                                onClick={() => setOpen(true)}
+  >
+    Get Started
+  </button>
           </div>
         </div>
       </div>
+        <AnimatePresence>
+  {open && <EarlyAccessModal onClose={() => setOpen(false)} />}
+</AnimatePresence>
     </section>
   );
 };
