@@ -1,6 +1,8 @@
-import { useEffect, useMemo, useRef, useCallback } from 'react';
+import React, { useEffect, useMemo, useRef, useCallback } from 'react';
 import { useGesture } from '@use-gesture/react';
 import { ChevronRight } from 'lucide-react';
+import EarlyAccessModal from './Earlyaccess';
+import { AnimatePresence } from 'framer-motion';
 
 const DEFAULT_IMAGES = [
   {
@@ -148,6 +150,7 @@ export default function DomeGallery({
 const autoRotateRAF = useRef(null);
 const autoRotateSpeed = useRef(0.1); // degrees per frame
 const autoRotateEnabled = useRef(true);
+  const [open, setOpen] = React.useState(false);
 
   const scrollLockedRef = useRef(false);
   const lockScroll = useCallback(() => {
@@ -410,7 +413,7 @@ stopAutoRotate();
           cancelTapRef.current = !isTap;
 
           if (isTap && tapTargetRef.current && !focusedElRef.current) {
-            openItemFromElement(tapTargetRef.current);
+            // openItemFromElement(tapTargetRef.current);
           }
           tapTargetRef.current = null;
 
@@ -855,7 +858,7 @@ stopAutoRotate();
                       if (movedRef.current) return;
                       if (performance.now() - lastDragEndAt.current < 80) return;
                       if (openingRef.current) return;
-                      openItemFromElement(e.currentTarget);
+                      // openItemFromElement(e.currentTarget);
                     }}
                     onPointerUp={e => {
                       if (e.pointerType !== 'touch') return;
@@ -863,7 +866,7 @@ stopAutoRotate();
                       if (movedRef.current) return;
                       if (performance.now() - lastDragEndAt.current < 80) return;
                       if (openingRef.current) return;
-                      openItemFromElement(e.currentTarget);
+                      // openItemFromElement(e.currentTarget);
                     }}
                     style={{
                       inset: '10px',
@@ -890,7 +893,9 @@ stopAutoRotate();
                   <img src='/assets/bankicongallery.svg' alt='bank icon' className='z-20'/>
                   <h1 className='font-bold text-7xl text-center '>It covers all the banks</h1>
                   <span className='text-md font-light text-center'>Connected banking. Smart treasury. Instant payouts. One platform.</span>
-                    <button className="mt-4 px-8 py-4 bg-white text-black rounded-full font-semibold  transition-colors duration-300 inline-block cursor-pointer">
+                    <button className="mt-4 px-8 py-4 bg-white text-black rounded-full font-semibold  transition-colors duration-300 inline-block cursor-pointer"
+                              onClick={() => setOpen(true)}
+                    >
                 Get Started
               </button>
                 </div>
@@ -931,6 +936,9 @@ stopAutoRotate();
           </div>
         </main>
       </div>
+      <AnimatePresence>
+  {open && <EarlyAccessModal onClose={() => setOpen(false)} />}
+</AnimatePresence>
     </>
   );
 }

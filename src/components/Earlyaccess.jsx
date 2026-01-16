@@ -33,10 +33,10 @@ export default function EarlyAccessModal({ onClose }) {
               </div>
               <div>
                 <h2 className="text-xl font-bold text-white">
-                  Early Access
+                  Get Early Access
                 </h2>
                 <p className="text-sm text-gray-300">
-                  Be first to experience it
+                  Be the first  experience
                 </p>
               </div>
             </div>
@@ -74,7 +74,7 @@ export default function EarlyAccessModal({ onClose }) {
                 className="w-full bg-black text-white py-3 rounded-xl font-semibold 
                 shadow-lg hover:shadow-xl transition-all"
               >
-                Request Early Access
+                Get Early Access
               </motion.button>
             </form>
 

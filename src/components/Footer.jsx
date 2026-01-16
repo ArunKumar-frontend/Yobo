@@ -7,26 +7,14 @@ const Footer = () => {
   const footerLinks = {
     company: {
       title: "Our Company",
-      links: ["Home", "About", "Services", "News", "Contact"],
-    },
-    services: {
-      title: "Services",
-      links: [
-        "Market Research",
-        "Market Analysis",
-        "SEO Consultancy",
-        "Page Ranking",
-        "SMM",
-      ],
+      links: [ "About", "Services", "Contact"],
     },
     features: {
       title: "Features",
       links: [
-        "Brand Strategy",
-        "Audience Analytics",
-        "Copywriting",
-        "Team Training",
-        "Email Marketing",
+        "Connected banking",
+        "Smart treasury.",
+        "Instant payouts",
       ],
     },
   };
@@ -49,32 +37,29 @@ const Footer = () => {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-12">
-        {/* Left Section: Info and Socials */}
-        <div className="flex-1 max-w-[400px]">
+      
+        <div className="flex flex-1 flex-wrap justify-between gap-8">
+            <div className="flex-1 max-w-[400px]">
+                      <h3 className={headerStyles}>Our Mission</h3>
           <p className="font-['Outfit'] font-light text-[16px] leading-[1.5] tracking-normal text-[#4F4F4F] mb-8">
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint. Velit officia consequat duis enim velit mollit. Exercitation
-            veniam consequat sunt nostrud amet.
+           To eliminate financial friction for Indian businesses by providing unified banking visibility, intelligent treasury management, and seamless payouts — all powered by AI that learns and adapts to each business's unique cash flow patterns.
           </p>
 
           <div className="flex gap-4">
-            <a className="p-2 text-blue-600 hover:scale-110 transition-transform">
+            <a className="p-2 text-blue-600 hover:scale-110 transition-transform cursor-pointer">
               <Facebook size={24} fill="currentColor" strokeWidth={0} />
             </a>
-            <a className="p-2 text-blue-600 hover:scale-110 transition-transform">
+            <a className="p-2 text-blue-600 hover:scale-110 transition-transform cursor-pointer">
               <Linkedin size={24} fill="currentColor" strokeWidth={0} />
             </a>
-            <a className="p-2 text-blue-400 hover:scale-110 transition-transform">
+            <a className="p-2 text-blue-400 hover:scale-110 transition-transform cursor-pointer">
               <Twitter size={24} fill="currentColor" strokeWidth={0} />
             </a>
-            <a className="p-2 text-blue-600 hover:scale-110 transition-transform">
+            <a className="p-2 text-blue-600 hover:scale-110 transition-transform cursor-pointer">
               <Instagram size={18} strokeWidth={2.5} />
             </a>
           </div>
         </div>
-
-        {/* Right Section: Navigation Columns */}
-        <div className="flex flex-1 flex-wrap justify-between gap-8">
           {/* Company Column */}
           <div>
             <h3 className={headerStyles}>{footerLinks.company.title}</h3>
@@ -89,19 +74,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services Column */}
-          <div>
-            <h3 className={headerStyles}>{footerLinks.services.title}</h3>
-            <ul className="space-y-4">
-              {footerLinks.services.links.map((link) => (
-                <li key={link}>
-                  <a href="#" className={linkStyles}>
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+       
 
           {/* Features Column */}
           <div>
