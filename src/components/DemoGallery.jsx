@@ -337,99 +337,99 @@ useEffect(() => {
     [dragDampening, maxVerticalRotationDeg, stopInertia]
   );
 
-  useGesture(
-    {
-      onDragStart: ({ event }) => {
-        if (!focusedElRef.current) return;
-        stopInertia();
-autoRotateEnabled.current = false;
-stopAutoRotate();
-        pointerTypeRef.current = event.pointerType || 'mouse';
-        if (pointerTypeRef.current === 'touch') event.preventDefault();
-        if (pointerTypeRef.current === 'touch') lockScroll();
-        draggingRef.current = true;
-        cancelTapRef.current = false;
-        movedRef.current = false;
-        startRotRef.current = { ...rotationRef.current };
-        startPosRef.current = { x: event.clientX, y: event.clientY };
-        const potential = event.target.closest?.('.item__image');
-        tapTargetRef.current = potential || null;
-      },
-      onDrag: ({ event, last, velocity: velArr = [0, 0], direction: dirArr = [0, 0], movement }) => {
-        if (focusedElRef.current || !draggingRef.current || !startPosRef.current) return;
+//   useGesture(
+//     {
+//       onDragStart: ({ event }) => {
+//         if (!focusedElRef.current) return;
+//         stopInertia();
+// autoRotateEnabled.current = false;
+// stopAutoRotate();
+//         pointerTypeRef.current = event.pointerType || 'mouse';
+//         if (pointerTypeRef.current === 'touch') event.preventDefault();
+//         if (pointerTypeRef.current === 'touch') lockScroll();
+//         draggingRef.current = true;
+//         cancelTapRef.current = false;
+//         movedRef.current = false;
+//         startRotRef.current = { ...rotationRef.current };
+//         startPosRef.current = { x: event.clientX, y: event.clientY };
+//         const potential = event.target.closest?.('.item__image');
+//         tapTargetRef.current = potential || null;
+//       },
+//       onDrag: ({ event, last, velocity: velArr = [0, 0], direction: dirArr = [0, 0], movement }) => {
+//         if (focusedElRef.current || !draggingRef.current || !startPosRef.current) return;
 
-        if (pointerTypeRef.current === 'touch') event.preventDefault();
+//         if (pointerTypeRef.current === 'touch') event.preventDefault();
 
-        const dxTotal = event.clientX - startPosRef.current.x;
-        const dyTotal = event.clientY - startPosRef.current.y;
+//         const dxTotal = event.clientX - startPosRef.current.x;
+//         const dyTotal = event.clientY - startPosRef.current.y;
 
-        if (!movedRef.current) {
-          const dist2 = dxTotal * dxTotal + dyTotal * dyTotal;
-          if (dist2 > 16) movedRef.current = true;
-        }
+//         if (!movedRef.current) {
+//           const dist2 = dxTotal * dxTotal + dyTotal * dyTotal;
+//           if (dist2 > 16) movedRef.current = true;
+//         }
 
-        const nextX = clamp(
-          startRotRef.current.x - dyTotal / dragSensitivity,
-          -maxVerticalRotationDeg,
-          maxVerticalRotationDeg
-        );
-        const nextY = startRotRef.current.y + dxTotal / dragSensitivity;
+//         const nextX = clamp(
+//           startRotRef.current.x - dyTotal / dragSensitivity,
+//           -maxVerticalRotationDeg,
+//           maxVerticalRotationDeg
+//         );
+//         const nextY = startRotRef.current.y + dxTotal / dragSensitivity;
 
-        const cur = rotationRef.current;
-        if (cur.x !== nextX || cur.y !== nextY) {
-          rotationRef.current = { x: nextX, y: nextY };
-          applyTransform(nextX, nextY);
-        }
+//         const cur = rotationRef.current;
+//         if (cur.x !== nextX || cur.y !== nextY) {
+//           rotationRef.current = { x: nextX, y: nextY };
+//           applyTransform(nextX, nextY);
+//         }
 
-        if (last) {
-          draggingRef.current = false;
-          let isTap = false;
+//         if (last) {
+//           draggingRef.current = false;
+//           let isTap = false;
 
-          if (startPosRef.current) {
-            const dx = event.clientX - startPosRef.current.x;
-            const dy = event.clientY - startPosRef.current.y;
-            const dist2 = dx * dx + dy * dy;
-            const TAP_THRESH_PX = pointerTypeRef.current === 'touch' ? 10 : 6;
-            if (dist2 <= TAP_THRESH_PX * TAP_THRESH_PX) {
-              isTap = true;
-            }
-          }
+//           if (startPosRef.current) {
+//             const dx = event.clientX - startPosRef.current.x;
+//             const dy = event.clientY - startPosRef.current.y;
+//             const dist2 = dx * dx + dy * dy;
+//             const TAP_THRESH_PX = pointerTypeRef.current === 'touch' ? 10 : 6;
+//             if (dist2 <= TAP_THRESH_PX * TAP_THRESH_PX) {
+//               isTap = true;
+//             }
+//           }
 
-          let [vMagX, vMagY] = velArr;
-          const [dirX, dirY] = dirArr;
-          let vx = vMagX * dirX;
-          let vy = vMagY * dirY;
+//           let [vMagX, vMagY] = velArr;
+//           const [dirX, dirY] = dirArr;
+//           let vx = vMagX * dirX;
+//           let vy = vMagY * dirY;
 
-          if (!isTap && Math.abs(vx) < 0.001 && Math.abs(vy) < 0.001 && Array.isArray(movement)) {
-            const [mx, my] = movement;
-            vx = (mx / dragSensitivity) * 0.02;
-            vy = (my / dragSensitivity) * 0.02;
-          }
+//           if (!isTap && Math.abs(vx) < 0.001 && Math.abs(vy) < 0.001 && Array.isArray(movement)) {
+//             const [mx, my] = movement;
+//             vx = (mx / dragSensitivity) * 0.02;
+//             vy = (my / dragSensitivity) * 0.02;
+//           }
 
-          if (!isTap && (Math.abs(vx) > 0.005 || Math.abs(vy) > 0.005)) {
-            // startInertia(vx, vy);
-          }
-          startPosRef.current = null;
-          cancelTapRef.current = !isTap;
+//           if (!isTap && (Math.abs(vx) > 0.005 || Math.abs(vy) > 0.005)) {
+//             // startInertia(vx, vy);
+//           }
+//           startPosRef.current = null;
+//           cancelTapRef.current = !isTap;
 
-          if (isTap && tapTargetRef.current && !focusedElRef.current) {
-            // openItemFromElement(tapTargetRef.current);
-          }
-          tapTargetRef.current = null;
+//           if (isTap && tapTargetRef.current && !focusedElRef.current) {
+//             // openItemFromElement(tapTargetRef.current);
+//           }
+//           tapTargetRef.current = null;
 
-          if (cancelTapRef.current) setTimeout(() => (cancelTapRef.current = false), 120);
-          if (movedRef.current) lastDragEndAt.current = performance.now();
-          movedRef.current = false;
-          if (pointerTypeRef.current === 'touch') unlockScroll();
-          setTimeout(() => {
-  autoRotateEnabled.current = true;
-  startAutoRotate();
-}, 600);
-        }
-      }
-    },
-    { target: mainRef, eventOptions: { passive: false } }
-  );
+//           if (cancelTapRef.current) setTimeout(() => (cancelTapRef.current = false), 120);
+//           if (movedRef.current) lastDragEndAt.current = performance.now();
+//           movedRef.current = false;
+//           if (pointerTypeRef.current === 'touch') unlockScroll();
+//           setTimeout(() => {
+//   autoRotateEnabled.current = true;
+//   startAutoRotate();
+// }, 600);
+//         }
+//       }
+//     },
+//     { target: mainRef, eventOptions: { passive: false } }
+//   );
 
   useEffect(() => {
     const scrim = scrimRef.current;
@@ -816,14 +816,15 @@ stopAutoRotate();
           ['--image-filter']: grayscale ? 'grayscale(1)' : 'none'
         }}
       >
-        <main
-          ref={mainRef}
-          className="absolute inset-0 grid place-items-center w-full overflow-hidden select-none bg-transparent"
-          style={{
-            touchAction: 'none',
-            WebkitUserSelect: 'none'
-          }}
-        >
+       <main
+  ref={mainRef}
+  className="absolute inset-0 grid place-items-center w-full overflow-hidden select-none bg-transparent"
+  style={{
+    touchAction: 'pan-y', // ✅ allow vertical scroll
+    WebkitUserSelect: 'none'
+  }}
+>
+
           
           <div className="stage bg-black w-full relative">
             <div ref={sphereRef} className="sphere bg-black  ">
