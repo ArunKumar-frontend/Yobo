@@ -1,5 +1,6 @@
 import React from "react";
 import { Facebook, Linkedin, Twitter, Instagram,Phone, Mail, MapPin  } from "lucide-react";
+import { AntDesignInstagramFilled } from "shadcn-icons";
 
 const Footer = () => {
   const linkStyles =
@@ -42,7 +43,7 @@ const Footer = () => {
             <div className="flex-1 max-w-[400px]">
                       <h3 className={headerStyles}>Our Mission</h3>
           <p className="font-['Outfit'] font-light text-[16px] leading-[1.5] tracking-normal text-[#4F4F4F] mb-8">
-           To eliminate financial friction for Indian businesses by providing unified banking visibility, intelligent treasury management, and seamless payouts — all powered by AI that learns and adapts to each business's unique cash flow patterns.
+           To eliminate financial friction for Indian businesses by providing unified banking visibility, intelligent treasury management, and seamless payouts all powered by AI that learns and adapts to each business's unique cash flow patterns.
           </p>
 
           <div className="flex gap-4 items-center">
@@ -50,13 +51,13 @@ const Footer = () => {
               <img src="/assets/logo-facebook.svg" alt="facebook"/>
             </a>
             <a  href="https://www.linkedin.com/company/withyobo/" target="_blank" rel="noopener noreferrer" className="p-2 text-blue-600 hover:scale-110 transition-transform cursor-pointer">
-              <img src="/assets/logo-linkedin.svg" alt="facebook"/>
+              <img src="/assets/logo-linkedin.svg" alt="Linkedin"/>
             </a>
             <a href="https://x.com/withyobo?s=21" target="_blank" rel="noopener noreferrer" className="p-2 text-blue-400 hover:scale-110 transition-transform cursor-pointer">
-              <img src="/assets/logo-twitter.svg" alt="facebook"/>
+              <img src="/assets/logo-twitter.svg" alt="twitter"/>
             </a>
             <a href="https://www.instagram.com/withyobo/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer" className="p-2 text-blue-600 hover:scale-110 transition-transform cursor-pointer">
-              <img src="/assets/logo-instagram.svg" alt="facebook"/>
+              <img src="/assets/logo-instagram-filled.svg" alt="instagram" className="h-8 w-8" />
             </a>
           </div>
         </div>
