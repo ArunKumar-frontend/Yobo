@@ -45,9 +45,10 @@ export const EvervaultCard = ({
   <div className="relative w-[80%] md:w-[60%] p-0 flex flex-col gap-4 items-center justify-center text-white font-bold text-4xl">
             {/* <div className="absolute w-full h-full bg-white/[0.8] dark:bg-black/[0.8] blur-sm rounded-full " /> */}
               <div className="flex flex-col justify-center items-center gap-2">
-     <span className="dark:text-white text-white z-20">
+     <span className="dark:text-white text-white z-20 text-4xl lg:text-5xl">
 
-              <span className="text-[#FFCA00]">AI-Powered </span>Investment Advice
+              <span className="text-[#FFCA00] ">AI-Powered </span>
+              <span>Investment Advice</span>
             </span>
             <span className="text-lg  text-[#99A7E1] z-20">Let AI put your money to work.</span>
               </div> 

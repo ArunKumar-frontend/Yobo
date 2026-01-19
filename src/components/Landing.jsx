@@ -28,7 +28,7 @@ export const Landing = () => {
       )}
 
       {/* Content */}
-      <div className="absolute h-[50%] inset-0 z-20 flex flex-col justify-end gap-2 md:-mt-10 items-center text-center px-4 text-black">
+      <div className="absolute h-[50%] inset-0 z-20 flex flex-col justify-end gap-2 -mt-10 items-center text-center px-4 text-black">
         
         {/* Tags */}
         <div className="flex flex-wrap gap-2 justify-center">
@@ -77,7 +77,7 @@ export const Landing = () => {
 
       {/* Bottom Illustration */}
       {mounted && (
-      <div className="absolute bottom-10 left-0 right-0 z-10 pb-8 sm:pb-6 md:pb-8 flex justify-center">
+      <div className="absolute  bottom-20 md:bottom-10 left-0 right-0 z-10 pb-8 sm:pb-6 md:pb-8 flex justify-center">
           <motion.img
             src="/assets/cycle.svg"
             alt="cycle"
@@ -91,7 +91,7 @@ export const Landing = () => {
 
       {/* Curved Loop */}
       {mounted && (
-      <div className="absolute -bottom-4 left-0 right-0 z-10 pb-8 sm:pb-6 md:pb-8">
+      <div className="absolute bottom-10 md:-bottom-4 left-0 right-0 z-10 pb-8 sm:pb-6 md:pb-8">
           <CurvedLoop
             marqueeText="Invoices ✦ Payroll ✦ Expenses ✦ Cash Flow ✦ Smart Treasury ✦ Runway ✦ "
             speed={0.8}
