@@ -8,23 +8,38 @@ import RotatingText from "./RotatingText";
 
 export const Landing = () => {
   const [mounted, setMounted] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
 
   React.useEffect(() => {
     setMounted(true);
+        setIsMobile(window.innerWidth < 768);
+
   }, []);
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
       {/* ✅ Background (client-only) */}
-      {mounted && (
+            {mounted && (
+        !isMobile ? 
         <GridDistortion
-          imageSrc="./assets/video2.mp4"
+          imageSrc="/assets/video2.mp4"
           grid={10}
           mouse={0.1}
           strength={0.15}
           relaxation={0.9}
           className="absolute inset-0 z-0 opacity-50"
         />
+       : 
+ <video
+      src="/assets/video2.mp4"
+      autoPlay
+      muted
+      loop
+      playsInline
+      className="absolute inset-0 w-full h-full object-cover opacity-50 z-0"
+    />      
+      
+       
       )}
 
       {/* Content */}
