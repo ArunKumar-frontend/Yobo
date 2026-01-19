@@ -1,6 +1,5 @@
 import React from "react";
 import { Facebook, Linkedin, Twitter, Instagram,Phone, Mail, MapPin  } from "lucide-react";
-import { AntDesignInstagramFilled } from "shadcn-icons";
 
 const Footer = () => {
   const linkStyles =
