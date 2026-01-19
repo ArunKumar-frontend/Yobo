@@ -340,7 +340,7 @@ useEffect(() => {
   useGesture(
     {
       onDragStart: ({ event }) => {
-        if (focusedElRef.current) return;
+        if (!focusedElRef.current) return;
         stopInertia();
 autoRotateEnabled.current = false;
 stopAutoRotate();
@@ -407,7 +407,7 @@ stopAutoRotate();
           }
 
           if (!isTap && (Math.abs(vx) > 0.005 || Math.abs(vy) > 0.005)) {
-            startInertia(vx, vy);
+            // startInertia(vx, vy);
           }
           startPosRef.current = null;
           cancelTapRef.current = !isTap;
@@ -853,21 +853,21 @@ stopAutoRotate();
                     role="button"
                     tabIndex={0}
                     aria-label={it.alt || 'Open image'}
-                    onClick={e => {
-                      if (draggingRef.current) return;
-                      if (movedRef.current) return;
-                      if (performance.now() - lastDragEndAt.current < 80) return;
-                      if (openingRef.current) return;
-                      // openItemFromElement(e.currentTarget);
-                    }}
-                    onPointerUp={e => {
-                      if (e.pointerType !== 'touch') return;
-                      if (draggingRef.current) return;
-                      if (movedRef.current) return;
-                      if (performance.now() - lastDragEndAt.current < 80) return;
-                      if (openingRef.current) return;
-                      // openItemFromElement(e.currentTarget);
-                    }}
+                    // onClick={e => {
+                    //   if (draggingRef.current) return;
+                    //   if (movedRef.current) return;
+                    //   if (performance.now() - lastDragEndAt.current < 80) return;
+                    //   if (openingRef.current) return;
+                    //   // openItemFromElement(e.currentTarget);
+                    // }}
+                    // onPointerUp={e => {
+                    //   if (e.pointerType !== 'touch') return;
+                    //   if (draggingRef.current) return;
+                    //   if (movedRef.current) return;
+                    //   if (performance.now() - lastDragEndAt.current < 80) return;
+                    //   if (openingRef.current) return;
+                    //   // openItemFromElement(e.currentTarget);
+                    // }}
                     style={{
                       inset: '10px',
                       borderRadius: `var(--tile-radius, ${imageBorderRadius})`,
@@ -891,8 +891,8 @@ stopAutoRotate();
                 <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black z-10 pointer-events-none" />
                 <div className='text-white z-20 absolute flex flex-col justify-center items-center gap-2 '>
                   <img src='/assets/bankicongallery.svg' alt='bank icon' className='z-20'/>
-                  <h1 className='font-bold text-7xl text-center '>It covers all the banks</h1>
-                  <span className='text-md font-light text-center'>Connected banking. Smart treasury. Instant payouts. One platform.</span>
+                  <h1 className='font-bold text-4xl md:text-7xl text-center '>It covers all the banks</h1>
+                  <span className=' text-xs md:text-xl font-light text-center'>Connected banking. Smart treasury. Instant payouts. One platform.</span>
                     <button className="mt-4 px-8 py-4 bg-white text-black rounded-full font-semibold  transition-colors duration-300 inline-block cursor-pointer"
                               onClick={() => setOpen(true)}
                     >

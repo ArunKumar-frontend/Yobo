@@ -1,5 +1,8 @@
 import { useEffect, useRef } from 'react';
+import scrollstack3 from '../../public/assets/Comp4.json'
+import scrollstack2 from '../../public/assets/Comp5.json'
 
+import Lottie from 'lottie-react';
 const ScrollStack = () => {
   const cardsData = [
   {
@@ -11,7 +14,8 @@ const ScrollStack = () => {
     bg: 'bg-white',
     textColor: 'text-[#242A33]',
     highlightColor: 'text-[#0D3BFF]',
-    video: './assets/scrollstackimg1.svg',
+    video: './assets/scrollstack1.mp4',
+    lottie:'',
         image: './assets/scrollstackimg1.svg',
     marginbottomnum:"12vh"
   },
@@ -24,7 +28,8 @@ const ScrollStack = () => {
     bg: 'bg-[#0024B5]',
     textColor: 'text-white',
     highlightColor: 'text-white',
-    video: './assets/video1.mp4',
+    video: '',
+    lottie:scrollstack2,
         image: './assets/scrollstackimg2.svg',
         marginbottomnum:"12vh"
 
@@ -38,7 +43,8 @@ const ScrollStack = () => {
     bg: 'bg-[#3265FF]',
     textColor: 'text-white',
     highlightColor: 'text-white',
-    video: './assets/video1.mp4',
+    video: '',
+    lottie:scrollstack3,
         image: './assets/scrollstackimg3.svg',
         marginbottomnum:""
 
@@ -113,7 +119,7 @@ const ScrollStack = () => {
                   {card.indexLabel}
                 </span>
 
-                <h2 className={`text-5xl font-bold ${card.textColor}`}>
+                <h2 className={`text-3xl md:text-5xl  font-bold ${card.textColor}`}>
                   {card.title}
                   <span className={`block mt-3 ${card.highlightColor}`}>
                     {card.highlight}
@@ -143,8 +149,14 @@ const ScrollStack = () => {
                   loop
                   muted
                   playsInline
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-[50%] h-[50%] object-cover rounded-2xl"
                 />
+                // :
+    //             <Lottie
+    //   animationData={card.lottie}
+    //   loop={true}
+    //   className="w-[50%] h-[50%]"
+    // />
                 }
               </div>
 

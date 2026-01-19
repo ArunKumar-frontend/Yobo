@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Lottie from 'lottie-react';
+import animation1 from '../../public/assets/Comp2.json'
+import animation2 from '../../public/assets/Comp3.json'
 
 const ContentSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -12,7 +15,9 @@ const ContentSlider = () => {
       heading: "Organise your money",
       description: "Whether it's for gadgets and getaways or bills, automatically categorise your cash with Pockets. They're sub-accounts that help you control your spend.",
       buttonText: "Create a Pocket",
-      image: "/assets/sliderimg1.svg"
+      image: "/assets/sliderimg1.svg",
+      video:'',
+      json:animation1
     },
     {
       id: 2,
@@ -20,7 +25,9 @@ const ContentSlider = () => {
       heading: "Track your spending",
       description: "Set monthly budgets for different categories and get real-time insights into your spending habits. Stay on top of your finances with smart alerts.",
       buttonText: "Set Budget",
-      image: "/assets/sliderimg2.svg"
+      image: "/assets/sliderimg2.svg",
+      video:'/assets/slider1.mp4',
+      json:''
     },
     {
       id: 3,
@@ -28,7 +35,9 @@ const ContentSlider = () => {
       heading: "Understand your money",
       description: "Get detailed breakdowns of your spending patterns with interactive charts and insights. Make smarter financial decisions with data.",
       buttonText: "View Analytics",
-      image: "/assets/sliderimg3.svg"
+      image: "/assets/sliderimg3.svg",
+      video:'/assets/slider1.mp4',
+      json:animation2
     }
   ];
 
@@ -146,6 +155,22 @@ const ContentSlider = () => {
                 alt={slides[currentIndex].title}
                 className="w-full h-full object-cover rounded-3xl "
               />
+              {/* {slides[currentIndex].json?
+              <Lottie
+      animationData={slides[currentIndex].json}
+      loop={true}
+      className="w-full h-full"
+    />:
+      <video
+                  src={slides[currentIndex].video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover rounded-2xl"
+                />
+            } */}
+         
             </div>
 
             {/* Next two images stacked */}
